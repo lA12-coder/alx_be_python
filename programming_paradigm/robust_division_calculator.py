@@ -8,5 +8,5 @@ def safe_divide(numerator, denominator):
         result = numerator / denominator
         return f"The result of the division is {result}"
     except ValueError:
-        print("Error: Please enter numeric values only.")
+        return "Error: Please enter numeric values only."
         
