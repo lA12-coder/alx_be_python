@@ -3,8 +3,11 @@ class Book:
         self.title = title
         self.author = author
         self.__is_checked_out = False
-    def set_check_out_value(self,value):
-        self.__is_checked_out = value
+        
+    def check_out(self):
+        self.__is_checked_out = True
+    def return_book(self):
+        self.__is_checked_out = False
     def get_check_out_value(self):
         return self.__is_checked_out
         
@@ -18,14 +21,14 @@ class Library:
     def check_out_book(self,title) -> None:
         for book in self.__books:
             if book.title == title:
-                book.set_check_out_value(True)
+                book.check_out()
                 break                
             
     def return_book(self,title) -> None:
         for book in self.__books:
             if book.title == title:
                 if book.get_check_out_value()== True:
-                    book.set_check_out_value(False)
+                    book.return_book()
                     break
                 
                 
@@ -35,4 +38,5 @@ class Library:
                 print(
                     f"{book.title} by {book.author}"
                 )
+                
                 
